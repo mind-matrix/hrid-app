@@ -1,0 +1,9 @@
+ion-tab-button {
+    --color-selected: var(--ion-color-secondary) !important;
+}
+ion-tab-button > ion-label {
+    display: none;
+}
+ion-tab-button[aria-selected=true] > ion-label {
+    display: initial;
+}

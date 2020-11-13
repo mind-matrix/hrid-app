@@ -1,0 +1,186 @@
+<ion-header [translucent]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-icon size="large" name="menu" (click)="openMenu()"></ion-icon>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h1 class="head-text">
+          Hi, {{ name }}
+          <small>How are you feeling today?</small>
+        </h1>
+        <img src="assets/images/lotus.png" alt="lotus" class="head-lotus">
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="head-search">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="10">
+              <ion-input placeholder="Type something..."></ion-input>
+            </ion-col>
+            <ion-col size="2">
+              <ion-fab-button size="small">
+                <ion-icon size="large" name="chevron-forward-outline"></ion-icon>
+              </ion-fab-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<ion-menu side="start" menuId="sidenav" contentId="main">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>HRID</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item>
+        <ion-router-link href="/chat">
+          Chat
+        </ion-router-link>
+      </ion-item>
+      <ion-item>
+        <ion-router-link href="/auth/">
+          Logout
+        </ion-router-link>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-content id="main" class="content" [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Home</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-row>
+    <ion-col size="12">
+      <div class="spacer"></div>
+    </ion-col>
+    <ion-col *ngFor="let banner of banners" size="12">
+      <ion-card class="ad">
+        <ion-card-header>
+          <ion-card-subtitle>{{ banner.subtitle }}</ion-card-subtitle>
+          <ion-card-title>{{ banner.title }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          {{ banner.text }}
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col *ngFor="let adlet of adlets" size="6">
+      <ion-card class="ad">
+        <ion-card-header>
+          <ion-card-subtitle>{{ adlet.subtitle }}</ion-card-subtitle>
+          <ion-card-title>{{ adlet.title }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            {{ adlet.text }}
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+      <h2 class="primary-shade-text">
+        Personalized treatment for your specific Conditions
+      </h2>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col *ngFor="let treatment of treatments" size="4">
+      <ion-card class="ad">
+        <img [src]="treatment.icon" width="100%" height="auto" alt="treatment.name">
+        <ion-card-header>
+          <ion-card-subtitle style="font-size: 12px;">{{ treatment.name }}</ion-card-subtitle>
+        </ion-card-header>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+      <h2 class="primary-shade-text">
+        Featured Doctors
+      </h2>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col *ngFor="let doctor of doctors" size="10">
+      <ion-card class="ad">
+        <ion-card-header>
+          <ion-card-title>{{ doctor.name }}</ion-card-title>
+          <ion-card-subtitle *ngIf="doctor.department">{{ doctor.department }}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <p *ngIf="doctor.experience">
+            {{ doctor.experience }}
+          </p>
+          <p *ngIf="doctor.description">
+            {{ doctor.description }}
+          </p>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+      <h2 class="primary-shade-text">
+        HRID TV
+      </h2>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col *ngFor="let video of videos" size="12">
+      <div [class]="['video-container', 'aspect-ratio-' + video.aspectRatio]">
+        <iframe [src]="video.url | safe: 'resourceUrl'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+      <h2 class="primary-shade-text">
+        Latest Health Articles
+      </h2>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col *ngFor="let article of articles" size="12">
+      <ion-card class="ad">
+        <img *ngIf="article.cover" [src]="article.cover" />
+        <ion-card-header>
+          <ion-card-title>{{ article.title }}</ion-card-title>
+          <ion-card-subtitle *ngIf="article.subtitle">{{ article.subtitle }}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          {{ article.text || '' }}
+          <div class="ion-text-right">
+            <ion-icon name="share-social"></ion-icon>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+  
+
+</ion-content>

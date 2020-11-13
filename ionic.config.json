@@ -1,0 +1,7 @@
+{
+  "name": "hrid-ui",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
