@@ -3,11 +3,10 @@ import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ConsultationPage } from './consultation.page';
+import { Tab3Page } from './tab3.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 
-import { ConsultationPageRoutingModule } from './consultation-routing.module';
-import { ConsultationFormComponentModule } from './consultation-form/consultation-form.module';
+import { Tab3PageRoutingModule } from './tab3-routing.module';
 
 @NgModule({
   imports: [
@@ -15,9 +14,9 @@ import { ConsultationFormComponentModule } from './consultation-form/consultatio
     CommonModule,
     FormsModule,
     ExploreContainerComponentModule,
-    ConsultationFormComponentModule,
-    ConsultationPageRoutingModule
+    RouterModule.forChild([{ path: '', component: Tab3Page }]),
+    Tab3PageRoutingModule,
   ],
-  declarations: [ConsultationPage]
+  declarations: [Tab3Page]
 })
-export class ConsultationPageModule {}
+export class Tab3PageModule {}

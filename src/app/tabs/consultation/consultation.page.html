@@ -3,6 +3,9 @@
     <ion-title>
       Consultation
     </ion-title>
+    <ion-buttons *ngIf="selectedDepartment" slot="start">
+      <ion-icon name="arrow-back-outline" size="large" (click)="selectedDepartment = null;"></ion-icon>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -13,17 +16,23 @@
     </ion-toolbar>
   </ion-header>
   
-  <ion-row>
+  <ion-row *ngIf="!selectedDepartment">
     <ion-col size="12">
       <ion-searchbar placeholder="Search speciality"></ion-searchbar>
     </ion-col>
     <ion-col *ngFor="let department of departments" size="6" sizeMd="4" sizeLg="3">
-      <ion-card class="ad">
+      <ion-card class="ad" (click)="selectDepartment(department.name)">
         <img [src]="department.icon" width="100%" height="auto" alt="department.name">
         <ion-card-header>
           <ion-card-subtitle style="font-size: 12px;">{{ department.name }}</ion-card-subtitle>
         </ion-card-header>
       </ion-card>
+    </ion-col>
+  </ion-row>
+
+  <ion-row *ngIf="selectedDepartment">
+    <ion-col size="12">
+      <app-consultation-form></app-consultation-form>
     </ion-col>
   </ion-row>
 

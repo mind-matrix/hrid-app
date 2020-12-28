@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 
 interface Ad {
@@ -44,7 +45,9 @@ interface Doctor {
 })
 export class HomePage {
 
-  public name: String = 'Sagnik';
+  public name: string = 'Sagnik';
+
+  public chatInput: string = '';
 
   public adlets: Ad[] = [
     {
@@ -100,11 +103,16 @@ export class HomePage {
     }
   ];
   
-  constructor(private menu: MenuController) {}
+  constructor(private menu: MenuController, private router: Router) {}
 
   openMenu() {
     this.menu.enable(true, 'sidenav');
     this.menu.open('sidenav');
+  }
+
+  openChat() {
+    console.log(this.chatInput)
+    this.router.navigate(['/chat', { text: this.chatInput }])
   }
 
 }

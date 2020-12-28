@@ -1,9 +1,20 @@
-<ion-list lines="none">
-    <ion-item *ngFor="let message of messages">
-        <chat-message [color]="message.color || '#000'" [backgroundColor]="message.backgroundColor || '#e8e8e8'" [class]="message.align || 'left'">
-            <span *ngIf="message.text">{{ message.text }}</span>
-            <chat-message-data *ngIf="message.data" [data]="message.data"></chat-message-data>
-        </chat-message>
-    </ion-item>
-</ion-list>
-<chat-input [type]="type" [value]="value" [options]="options"></chat-input>
+<ion-header>
+    <ion-toolbar>
+        <ion-title>HRID Chat</ion-title>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/"></ion-back-button>
+      </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list lines="none">
+        <ion-item *ngFor="let message of messages">
+            <chat-message [color]="message.color || '#000'" [backgroundColor]="message.backgroundColor || '#e8e8e8'" [class]="message.align || 'left'">
+                <span *ngIf="message.text">{{ message.text }}</span>
+                <chat-message-data *ngIf="message.data" [data]="message.data"></chat-message-data>
+            </chat-message>
+        </ion-item>
+    </ion-list>
+    <chat-input [type]="type" [value]="value" [options]="options"></chat-input>
+</ion-content>

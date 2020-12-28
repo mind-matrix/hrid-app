@@ -1,0 +1,56 @@
+<ion-grid>
+    <ion-row>
+        <ion-col size="12" size-md>
+            <ion-row>
+                <ion-col>
+                    <ion-row>
+                        <ion-col size="12">
+                            <ion-avatar>
+                                <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+                            </ion-avatar>
+                        </ion-col>
+                        <ion-col size="12">
+                            <ion-chip>
+                                <ion-label>10 yrs. experience</ion-label>
+                            </ion-chip>
+                        </ion-col>
+                    </ion-row>
+                </ion-col>
+                <ion-col>
+                    Dr. Test Dr
+                </ion-col>
+            </ion-row>
+        </ion-col>
+        <ion-col size="12" size-md>
+            <ion-list>
+                <ion-item>
+                    <ion-label position="stacked">Your disease (Optional)</ion-label>
+                    <ion-input></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label position="stacked">Symptoms</ion-label>
+                    <ion-input></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label position="stacked">Current medication</ion-label>
+                    <ion-input></ion-input>
+                </ion-item>
+            </ion-list>
+        </ion-col>
+    </ion-row>
+    <ion-row *ngFor="let slot_option of slot_options">
+        <div class="accordion">
+            <div class="accordion__header">
+                <ion-label class="accordion-label">
+                    {{slot_option.date}}
+                </ion-label>
+                <ion-icon [name]="slot_option.visible ? 'remove-outline' : 'add-outline'" class="ion-float-right" (click)="slot_option.visible = !slot_option.visible;"></ion-icon>
+            </div>
+            <div class="accordion__content" *ngIf="slot_option.visible">
+                <ion-button *ngFor="let time of slot_option.times">
+                    {{ time }}
+                </ion-button>
+            </div>
+        </div>
+    </ion-row>
+</ion-grid>

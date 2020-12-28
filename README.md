@@ -1,2 +1,0 @@
-# hrid-app
-HRID App

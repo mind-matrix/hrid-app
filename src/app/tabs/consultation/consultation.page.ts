@@ -13,6 +13,8 @@ export interface Department {
 })
 export class ConsultationPage {
 
+  selectedDepartment: string = null
+
   departments: Department[] = [
     {
       icon: 'assets/images/sample-treatment-icon.png',
@@ -36,6 +38,10 @@ export class ConsultationPage {
     }
   ]
 
-  constructor() {}
+  constructor () { }
+
+  selectDepartment(department: string) {
+    this.selectedDepartment = department
+  }
 
 }

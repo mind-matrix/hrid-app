@@ -1,6 +1,6 @@
 {
   "appId": "io.ionic.starter",
-  "appName": "hrid-ui",
+  "appName": "health-app",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",

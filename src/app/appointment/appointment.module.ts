@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
-import { ChatPage } from './chat.page';
+import { AppointmentPage } from './appointment.page';
 import { InputModule, MessageModule, MessageDataModule } from '@chatr/angular';
-import { ChatPageRoutingModule } from './chat-routing.module';
+import { AppointmentPageRoutingModule } from './appointment-routing.module';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
+import { NbButtonModule, NbSelectModule } from '@nebular/theme';
 
 @NgModule({
   imports: [
@@ -12,8 +13,10 @@ import { IonicModule } from '@ionic/angular';
       InputModule,
       MessageModule,
       MessageDataModule,
-      ChatPageRoutingModule
+      AppointmentPageRoutingModule,
+      NbButtonModule,
+      NbSelectModule
   ],
-  declarations: [ChatPage]
+  declarations: [AppointmentPage]
 })
-export class ChatPageModule{}
+export class AppointmentPageModule{}

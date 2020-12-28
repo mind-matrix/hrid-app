@@ -19,10 +19,10 @@
         <ion-grid>
           <ion-row>
             <ion-col size="10">
-              <ion-input placeholder="Type something..."></ion-input>
+              <ion-input [(ngModel)]="chatInput" placeholder="Type something..."></ion-input>
             </ion-col>
             <ion-col size="2">
-              <ion-fab-button size="small">
+              <ion-fab-button (click)="openChat()" size="small">
                 <ion-icon size="large" name="chevron-forward-outline"></ion-icon>
               </ion-fab-button>
             </ion-col>
@@ -44,6 +44,26 @@
       <ion-item>
         <ion-router-link href="/chat">
           Chat
+        </ion-router-link>
+      </ion-item>
+      <ion-item>
+        <ion-router-link href="/appointment">
+          Your appointments
+        </ion-router-link>
+      </ion-item>
+      <ion-item>
+        <ion-router-link href="/profile">
+          Your profile
+        </ion-router-link>
+      </ion-item>
+      <ion-item>
+        <ion-router-link href="/contact-us">
+          Contact us
+        </ion-router-link>
+      </ion-item>
+      <ion-item>
+        <ion-router-link href="/about-us">
+          About us
         </ion-router-link>
       </ion-item>
       <ion-item>
